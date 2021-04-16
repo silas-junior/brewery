@@ -8,9 +8,24 @@ use Illuminate\Http\Request;
 class BeerController extends Controller
 {
 
+    private $beer, $request;
+
+    public function __construct(Beer $beer, Request $request)
+    {
+
+        $this->beer = $beer;
+        $this->request = $request;
+    }
+
     public function index()
     {
-        //
+        $this->request->validate([
+            'brewery_id' => 'required|numeric'
+        ]);
+
+        $beers = $this->beer->orderBy('id')->get();
+
+        return response()->json($beers);
     }
 
     public function create()
@@ -18,27 +33,27 @@ class BeerController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store()
     {
         //
     }
 
-    public function show(Beer $beer)
+    public function show($id)
     {
         //
     }
 
-    public function edit(Beer $beer)
+    public function edit($id)
     {
         //
     }
 
-    public function update(Request $request, Beer $beer)
+    public function update($id)
     {
         //
     }
 
-    public function destroy(Beer $beer)
+    public function destroy($id)
     {
         //
     }

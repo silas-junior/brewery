@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Brewery;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class BreweryController extends Controller
 {

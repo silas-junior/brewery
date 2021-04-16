@@ -29,6 +29,6 @@ class Brewery extends Model
 
     public function geocode()
     {
-        $this->hasOne(Geocode::class);
+        $this->hasOne(Geolocation::class);
     }
 }

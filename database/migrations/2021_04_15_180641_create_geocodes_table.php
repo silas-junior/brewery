@@ -9,7 +9,7 @@ class CreateGeocodesTable extends Migration
 
     public function up()
     {
-        Schema::create('geocodes', function (Blueprint $table) {
+        Schema::create('geolocations', function (Blueprint $table) {
             $table->id();
             $table->float('latitude')->default(0);
             $table->float('longitude')->default(0);
@@ -25,9 +25,9 @@ class CreateGeocodesTable extends Migration
 
     public function down()
     {
-        Schema::table('geocodes', function (Blueprint $table) {
+        Schema::table('geolocations', function (Blueprint $table) {
             $table->dropForeign(['brewery_id']);
         });
-        Schema::dropIfExists('geocodes');
+        Schema::dropIfExists('geolocations');
     }
 }
