@@ -21,4 +21,14 @@ class Brewery extends Model
     protected $casts = [
       'address' => 'array'
     ];
+
+    public function beers()
+    {
+        $this->hasMany(Beer::class);
+    }
+
+    public function geocode()
+    {
+        $this->hasOne(Geocode::class);
+    }
 }

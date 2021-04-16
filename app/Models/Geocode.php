@@ -20,4 +20,9 @@ class Geocode extends Model
         'latitude' => 'float',
         'longitude' => 'float'
     ];
+
+    public function brewery()
+    {
+        $this->belongsTo(Brewery::class);
+    }
 }

@@ -13,4 +13,9 @@ class Style extends Model
       'name',
       'category_id',
     ];
+
+    public function style()
+    {
+        $this->belongsTo(Category::class);
+    }
 }

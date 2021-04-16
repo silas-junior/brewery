@@ -8,4 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Beer extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'filepath',
+        'brewery_id',
+        'category_id',
+        'style_id',
+    ];
+
+    public function brewery()
+    {
+        $this->belongsTo(Brewery::class);
+    }
+
+    public function category()
+    {
+        $this->belongsTo(Category::class);
+    }
+//
+//    public function style()
+//    {
+//        $this->belongsTo(Style::class);
+//    }
 }
