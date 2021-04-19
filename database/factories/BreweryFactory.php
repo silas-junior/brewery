@@ -15,7 +15,11 @@ class BreweryFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'address' => $this->faker->address,
+            'address' => [
+                'country' => $this->faker->country,
+                'city' => $this->faker->city,
+                'number' => rand(10, 1200),
+            ],
             'phone' => $this->faker->phoneNumber,
             'website' => $this->faker->url,
             'filepath' => $this->faker->filePath(),
