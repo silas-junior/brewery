@@ -15,11 +15,11 @@ class Category extends Model
 
     public function beers()
     {
-        $this->hasMany(Beer::class);
+        return $this->hasMany(Beer::class);
     }
 
     public function styles()
     {
-        $this->hasMany(Style::class);
+        return $this->hasMany(Style::class);
     }
 }

@@ -23,6 +23,6 @@ class Geolocation extends Model
 
     public function brewery()
     {
-        $this->belongsTo(Brewery::class);
+        return $this->belongsTo(Brewery::class);
     }
 }

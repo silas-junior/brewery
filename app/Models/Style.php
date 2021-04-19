@@ -16,6 +16,6 @@ class Style extends Model
 
     public function style()
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }

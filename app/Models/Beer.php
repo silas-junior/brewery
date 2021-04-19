@@ -20,12 +20,12 @@ class Beer extends Model
 
     public function brewery()
     {
-        $this->belongsTo(Brewery::class);
+        return $this->belongsTo(Brewery::class);
     }
 
     public function category()
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 //
 //    public function style()

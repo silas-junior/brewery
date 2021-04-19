@@ -24,11 +24,11 @@ class Brewery extends Model
 
     public function beers()
     {
-        $this->hasMany(Beer::class);
+        return $this->hasMany(Beer::class);
     }
 
     public function geocode()
     {
-        $this->hasOne(Geolocation::class);
+        return $this->hasOne(Geolocation::class);
     }
 }
