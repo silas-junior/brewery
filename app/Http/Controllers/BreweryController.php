@@ -11,7 +11,7 @@ class BreweryController extends Controller
 
     public function index()
     {
-        $breweries = Brewery::withCount('beers')->paginate(8);
+        $breweries = Brewery::has('beers', '>', 0)->withCount('beers')->paginate(8);
 
         return Inertia::render('Dashboard', ['breweries' => $breweries]);
     }
