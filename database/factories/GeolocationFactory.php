@@ -18,7 +18,7 @@ class GeolocationFactory extends Factory
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
             'accuracy' => Str::random(3),
-            'brewery_id' => rand(0, 29),
+            'brewery_id' => rand(1, 30),
         ];
     }
 }
