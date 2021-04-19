@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\Brewery::factory(30)->create();
          \App\Models\Geolocation::factory(30)->create();
          \App\Models\Category::factory(30)->create();
+         \App\Models\Style::factory(30)->create();
+         \App\Models\Beer::factory(30)->create();
     }
 }
