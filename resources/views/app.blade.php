@@ -8,7 +8,7 @@
         <title>Breweries</title>
     </head>
 
-    <body>
-        <div>@inertia</div>
+    <body class="bg-gray-200 ">
+        <div class="container mx-auto mt-4">@inertia</div>
     </body>
 </html>
