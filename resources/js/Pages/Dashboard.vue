@@ -1,11 +1,9 @@
 <template>
     <div class="bg-blue-400">
         <ul>
-<!--            <li v-for="b in breweries" :key="b.id" class="">
+            <li v-for="b in breweries.data" :key="b.id" class="">
                 {{ b.name }}
-            </li>-->
-
-            teste
+            </li>
         </ul>
     </div>
 </template>
