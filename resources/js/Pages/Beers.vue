@@ -1,11 +1,9 @@
 <template>
     <h1 class="text-2xl font-bold text-gray-700 mb-6">
-<!--        {{ brewery.name }}-->
-<!--        <inertia-link :href="route('dashboard')" class="text-sm text-blue-600 hover:text-blue-400">
+        {{ brewery.name }}
+<!--        <inertia-link :href="route('brewery.index')" class="text-sm text-blue-600 hover:text-blue-400">
             [back]
         </inertia-link>-->
-
-        {{ beers.name }}
     </h1>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -28,21 +26,21 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody v-if="beers.length > 1" v-for="b in beers" :key="b.id" class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                {{ b.name }}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                5.5
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                500mL
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 truncate">
-                                {{ b.description }}
-                            </td>
-                        </tr>
+                        <tbody v-if="beers.length > 1" class="bg-white divide-y divide-gray-200">
+                            <tr v-for="b in beers" :key="b.id">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    {{ b.name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    5.5
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    500mL
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 truncate">
+                                    {{ b.description }}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
 <!--                    <div class="px-6 pb-4 bg-white">
@@ -63,8 +61,5 @@ export default {
         brewery: Object,
         beers: Array,
     },
-    created() {
-        console.log(this.beers)
-    }
 };
 </script>

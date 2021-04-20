@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beer;
+use App\Models\Brewery;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -20,13 +21,16 @@ class BeerController extends Controller
 
     public function index($id)
     {
-        /*$this->request->validate([
+        /*$this->request->valida'te([
             'brewery_id' => 'required|numeric'
         ]);*/
 
+        /*Buscam os registros de cada tabela*/
         $beers = $this->beer->where('brewery_id', $id)->get();
+        $brewery = Brewery::where('id', $id)->firstOrFail();
 
-        return Inertia::render('Beers', ['beers' => $beers]);
+        /*Returna para o componente as props*/
+        return Inertia::render('Beers', ['beers' => $beers, 'brewery' => $brewery]);
     }
 
     public function create()

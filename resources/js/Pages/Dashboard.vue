@@ -36,7 +36,7 @@
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul class="divide-y divide-gray-200">
             <li v-for="b in breweries.data" :key="b.id">
-                <inertia-link href="#" class="block hover:bg-gray-50">
+                <inertia-link :href="route('breweries.index', {id: b.id})" class="block hover:bg-gray-50">
                     <div class="px-4 py-4 sm:px-6">
 
                         <div class="flex items-center justify-between">
@@ -112,6 +112,7 @@ export default {
     name: "Dashboard",
     components: {Pagination},
     props: {
+        /*Props que vem do BeerController*/
         breweries: Object,
     },
     data() {
@@ -124,9 +125,6 @@ export default {
     },
     methods: {
 
-    },
-    created() {
-        console.log(this.breweries)
     }
 };
 </script>
