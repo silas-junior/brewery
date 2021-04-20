@@ -23,6 +23,7 @@
         "@inertiajs/inertia": "^0.8.7",
         "@inertiajs/inertia-vue3": "^0.3.13",
         "@inertiajs/progress": "^0.2.4",
+        "@types/ziggy-js": "^1.0.1",
         "vue": "^3.0.11"
     }
 }
