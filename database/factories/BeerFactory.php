@@ -18,7 +18,7 @@ class BeerFactory extends Factory
             'description' => $this->faker->text(200),
             'filepath' => $this->faker->filePath(),
             'brewery_id' => rand(1, 30),
-            'category_id' => rand(1, 30),
+            'category_id' => rand(1, 8),
             'style_id' => rand(1, 30),
         ];
     }

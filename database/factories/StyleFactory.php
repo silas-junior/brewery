@@ -14,7 +14,7 @@ class StyleFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'category_id' => rand(1, 30),
+            'category_id' => rand(1, 8),
         ];
     }
 }
