@@ -36,18 +36,36 @@
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul class="divide-y divide-gray-200">
             <li v-for="b in breweries.data" :key="b.id">
-                <inertia-link
-                    href="#"
-                    class="block hover:bg-gray-50"
-                >
+                <inertia-link href="#" class="block hover:bg-gray-50">
                     <div class="px-4 py-4 sm:px-6">
 
                         <div class="flex items-center justify-between">
-                            <p class="text-sm font-medium text-indigo-600 truncate">
-                                {{ b.name }}
-                            </p>
-                            <div class="ml-2 flex-shrink-0 flex">
-                                <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Open NOW! 🍺  </p>
+                            <p class="text-sm font-medium text-indigo-600 truncate">{{ b.name }}</p>
+
+                            <div class="flex justify-between">
+                                <div class="ml-2 flex-shrink-0 flex">
+                                    <p class="px-2 items-center justify-center flex text-center text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Open NOW! 🍺  </p>
+                                </div>
+                                <!--<div class="ml-2 flex-shrink-0 flex">
+                                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-100">Close NOW! ❌  </p>
+                                </div>-->
+
+                                <!--Ellipses-->
+                                <div class="hidden lg:flex justify-end relative ml-4">
+                                    <button  class="flex items-center justify-center focus:outline-none bg-gray-50 p-2 hover:bg-gray-200 h-6 w-6 rounded-full">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div v-show="true" class="z-30 absolute bg-gray-50 border-2 rounded-lg border-gray-50 transition shadow-2xl">
+                                        <div class="dropdown-content w-24">
+                                            <div class="flex flex-wrap items-center justify-center">
+                                                <a class="w-full flex items-center justify-end bg-red-200 p-2 text-sm space-x-2 dropdown-item" href="/">
+                                                    <span>Excluir</span>
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -72,10 +90,9 @@
                                 </p>
                             </div>
 
-                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+<!--                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
                                 <p>Qtd. de Cervejas: {{ b.beers_count }}</p>
-                                <p>{{  }}</p>
-                            </div>
+                            </div>-->
                         </div>
 
                     </div>
