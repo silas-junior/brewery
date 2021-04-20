@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Beer;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class BeerController extends Controller
 {
@@ -17,15 +18,15 @@ class BeerController extends Controller
         $this->request = $request;
     }
 
-    public function index()
+    public function index($id)
     {
-        $this->request->validate([
+        /*$this->request->validate([
             'brewery_id' => 'required|numeric'
-        ]);
+        ]);*/
 
-        $beers = $this->beer->orderBy('id')->get();
+        $beers = $this->beer->where('brewery_id', $id)->get();
 
-        return response()->json($beers);
+        return Inertia::render('Beers', ['beers' => $beers]);
     }
 
     public function create()

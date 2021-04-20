@@ -15,7 +15,7 @@ class BeerFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'description' => $this->faker->text(200),
+            'description' => $this->faker->text(40),
             'filepath' => $this->faker->filePath(),
             'brewery_id' => rand(1, 30),
             'category_id' => rand(1, 8),

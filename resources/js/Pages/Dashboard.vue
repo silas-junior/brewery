@@ -55,7 +55,7 @@
                                     <button  class="flex items-center justify-center focus:outline-none bg-gray-50 p-2 hover:bg-gray-200 h-6 w-6 rounded-full">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
-                                    <div v-show="true" class="z-30 absolute bg-gray-50 border-2 rounded-lg border-gray-50 transition shadow-2xl">
+                                    <div v-show="false" class="z-30 absolute bg-gray-50 border-2 rounded-lg border-gray-50 transition shadow-2xl">
                                         <div class="dropdown-content w-24">
                                             <div class="flex flex-wrap items-center justify-center">
                                                 <a class="w-full flex items-center justify-end bg-red-200 p-2 text-sm space-x-2 dropdown-item" href="/">

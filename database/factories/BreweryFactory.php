@@ -23,7 +23,7 @@ class BreweryFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'website' => $this->faker->url,
             'filepath' => $this->faker->filePath(),
-            'descript' => $this->faker->text(200)
+            'descript' => $this->faker->text(40)
         ];
     }
 }
