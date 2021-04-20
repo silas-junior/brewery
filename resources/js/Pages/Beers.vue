@@ -1,9 +1,9 @@
 <template>
     <h1 class="text-2xl font-bold text-gray-700 mb-6">
         {{ brewery.name }}
-<!--        <inertia-link :href="route('brewery.index')" class="text-sm text-blue-600 hover:text-blue-400">
+        <inertia-link :href="route('breweries.index')" class="text-sm text-blue-600 hover:text-blue-400">
             [back]
-        </inertia-link>-->
+        </inertia-link>
     </h1>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -26,7 +26,7 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody v-if="beers.length > 1" class="bg-white divide-y divide-gray-200">
+                        <tbody v-if="beers.length > 0" class="bg-white divide-y divide-gray-200">
                             <tr v-for="b in beers" :key="b.id">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                     {{ b.name }}
