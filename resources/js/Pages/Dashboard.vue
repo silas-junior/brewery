@@ -84,10 +84,12 @@
                                                 <span class="font-semibold text-gray-700">Editar</span>
                                                 <i class="fas fa-pencil-alt text-gray-700"></i>
                                             </a>
+                                            <button>
                                             <a @click.prevent="deleteBrewery(b.id)" class="text-gray-700 block px-4 py-2 text-sm border-t border-gray-100 flex justify-between hover:bg-gray-200">
                                                 <span class="font-semibold text-gray-700">Excluir</span>
                                                 <i class="fas fa-trash text-gray-700"></i>
                                             </a>
+                                            </button>
                                         </div>
                                     </div>
 
@@ -139,11 +141,12 @@ export default {
     components: {Pagination},
     props: {
         /*Props que vem do BeerController*/
-        breweries: Object,
+        breweries: Object
     },
     data() {
         return {
-            drop: false
+            drop: false,
+            data: {}
         };
     },
     computed: {
@@ -170,14 +173,19 @@ export default {
         deleteBrewery(payload) {
             // const removeItem = this.drop.splice(payload)
             // console.log('item removido:', removeItem)
+            // const data =  this.data
+            this.data._method = 'DELETE'
+            // console.log(data)
+            this.$inertia.post(`breweries/${payload}`, this.data)
 
-            const cervejaria = this.breweries.data
 
-            if(this.breweries === payload) {
-                this.breweries.splice(payload, 1);
-            } else {
-                return 'item n existe'
-            }
+            // const cervejaria = this.breweries.data
+            //
+            // if(this.breweries === payload) {
+            //     this.breweries.splice(payload, 1);
+            // } else {
+            //     return 'item n existe'
+            // }
         }
     }
 };
