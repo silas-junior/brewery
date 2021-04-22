@@ -1,6 +1,6 @@
 <template>
     <!--NEW -->
-    <section class="w-full p-4 my-4 rounded-lg bg-white border border-gray-100">
+    <section class="p-4 lg:mt-10 mt-2 w-full rounded-lg bg-white border border-gray-100">
         <div class="flex flex-row items-center justify-between my-4">
             <div class="flex flex-col">
                 <div class="text-sm font-light text-gray-500">Editar Endereço</div>
@@ -16,29 +16,29 @@
             </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row lg:flex-wrap w-full lg:space-x-4 mt-6 mb-4">
-            <div class="w-full lg:w-1/5">
-                <div class=" flex flex-col mb-4 text-gray-500">
+        <div class="flex flex-col lg:flex-row lg:flex-wrap w-full mt-6 mb-4">
+            <div class="w-full lg:w-1/4">
+                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                     <div class="mb-2">Nome</div>
-                    <input placeholder="Digite um País" v-model="form.name" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                    <input placeholder="Digite um Nome" v-model="form.name" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                 </div>
             </div>
-            <div class="w-full lg:w-1/5">
-                <div class=" flex flex-col mb-4 text-gray-500">
+            <div class="w-full lg:w-1/4">
+                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                     <div class="mb-2">País</div>
                     <input placeholder="Digite um País" v-model="form.address.country" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                 </div>
             </div>
-            <div class="w-full lg:w-1/5">
-                <div class=" flex flex-col mb-4 text-gray-500">
+            <div class="w-full lg:w-1/4">
+                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                     <div class="mb-2">Cidade</div>
-                    <input placeholder="Digite um País" v-model="form.address.city" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                    <input placeholder="Digite uma Cidade" v-model="form.address.city" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                 </div>
             </div>
-            <div class="w-full lg:w-1/5">
-                <div class=" flex flex-col mb-4 text-gray-500">
+            <div class="w-full lg:w-1/4">
+                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                     <div class="mb-2">Número</div>
-                    <input placeholder="Digite um País" v-model="form.address.number" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                    <input placeholder="Digite um Número" v-model="form.address.number" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                 </div>
             </div>
         </div>

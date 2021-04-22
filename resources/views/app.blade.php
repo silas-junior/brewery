@@ -15,6 +15,6 @@
 
     <body class="bg-gray-200 ">
 {{--        <div class="px-10 mx-auto mt-20">@inertia</div>--}}
-        <div class="px-60 py-10">@inertia</div>
+        <div class="lg:px-40 md:py-0 px-6 py-8">@inertia</div>
     </body>
 </html>
