@@ -52,15 +52,19 @@
 
                                 <!--Ellipses-->
                                 <div class="hidden lg:flex justify-end relative ml-4">
-                                    <button  @click.prevent="dropActive" class="flex items-center justify-center focus:outline-none bg-gray-50 p-2 hover:bg-gray-200 h-6 w-6 rounded-full">
+                                    <button  @click.prevent="dropActive(b.id)" class="flex items-center justify-center focus:outline-none bg-gray-50 p-2 hover:bg-gray-200 h-6 w-6 rounded-full">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
-                                    <div v-show="drop" class="z-30 absolute bg-gray-50 border-2 rounded-lg border-gray-50 transition mt-6 shadow-2xl">
+                                    <div v-show="drop === b.id" class="z-30 absolute bg-gray-100 border-2 rounded-sm border-gray-200 transition mt-6  shadow-2xl">
                                         <div class="dropdown-content w-24">
                                             <div class="flex flex-wrap items-center justify-center">
-                                                <a class="w-full flex items-center justify-end bg-red-200 p-2 text-sm space-x-2 dropdown-item" href="/">
-                                                    <span>Excluir</span>
-                                                    <i class="fas fa-trash"></i>
+                                                <a class="w-full flex items-center justify-end p-2 text-sm space-x-2 dropdown-item hover:bg-gray-200" href="/">
+                                                    <span class="font-semibold text-gray-700">Editar</span>
+                                                    <i class="fas fa-trash text-gray-700"></i>
+                                                </a>
+                                                <a class="w-full flex items-center justify-end p-2 text-sm space-x-2 dropdown-item hover:bg-gray-200 divide-y border-t border-gray-200" href="/">
+                                                    <span class="font-semibold text-gray-700">Excluir</span>
+                                                    <i class="fas fa-pencil-alt text-gray-700"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -124,8 +128,14 @@ export default {
 
     },
     methods: {
-        dropActive() {
-            this.drop = !this.drop;
+        dropActive(payload) {
+            // console.log(payload)
+            this.drop = this.drop === payload ? null : payload
+            /*if(this.drop === payload) {
+                this.drop = null;
+            } else {
+                this.drop = payload;
+            }*/
         }
     }
 };
