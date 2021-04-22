@@ -54,9 +54,9 @@
                                 <div class="ml-2 flex-shrink-0 flex">
                                     <p class="px-2 items-center justify-center flex text-center text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Open NOW! 🍺  </p>
                                 </div>
-                                <!--<div class="ml-2 flex-shrink-0 flex">
-                                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-100">Close NOW! ❌  </p>
-                                </div>-->
+<!--                                <div class="ml-2 flex-shrink-0 flex">-->
+<!--                                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-100">Close NOW! ❌  </p>-->
+<!--                                </div>-->
 
                                 <!--Ellipses-->
                                 <div class="hidden lg:flex justify-end relative ml-4">
@@ -98,7 +98,6 @@
                             <!--Location-->
                             <div class="sm:flex">
                                 <p class="mt-2 flex items-center text-sm text-gray-500">
-                                    <!-- Heroicon name: solid/location-marker -->
                                     <svg
                                         class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +129,7 @@
         </div>
     </div>
 
+    <!--Modal Create Brewery-->
     <div v-show="modal" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
@@ -168,19 +168,19 @@
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">País</div>
-                                    <input v-model="form.adress.country" placeholder="Digite um País" name="país" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.address.country" placeholder="Digite um País" name="país" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Cidade</div>
-                                    <input v-model="form.adress.city" placeholder="Digite uma Cidade" name="cidade" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.address.city" placeholder="Digite uma Cidade" name="cidade" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Número</div>
-                                    <input v-model="form.adress.number" placeholder="Digite um Número" name="numero" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.address.number" placeholder="Digite um Número" name="numero" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
@@ -198,7 +198,7 @@
                             <div class="w-full lg:w-2/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Descrição</div>
-                                    <textarea v-model="form.description" placeholder="Descrição da Cervejaria" name="telefone" rows="5" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none"/>
+                                    <textarea v-model="form.descript" placeholder="Descrição da Cervejaria" name="telefone" rows="5" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none"/>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                 </div>
                 <!--FOOTER MODAL-->
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    <button @click.prevent="form.post('/breweries')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
                         Adicionar
                     </button>
                     <button @click.prevent="modalActive" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
@@ -220,6 +220,7 @@
 
 <script>
 import Pagination from "../Shared/Pagination";
+import {useForm} from "@inertiajs/inertia-vue3";
 export default {
     name: "Dashboard",
     components: {Pagination},
@@ -234,8 +235,19 @@ export default {
             modal: false
         };
     },
-    computed: {
-
+    setup() {
+        const form = useForm({
+            name: null,
+            address: {
+                country: null,
+                city: null,
+                number: null
+            },
+            phone: null,
+            website: null,
+            descript: null
+        })
+        return {form}
     },
     methods: {
         dropActive(payload) {

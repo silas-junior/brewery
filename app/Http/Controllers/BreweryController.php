@@ -19,7 +19,7 @@ class BreweryController extends Controller
 
     public function index()
     {
-        $breweries = Brewery::has('beers', '>=', 0)->withCount('beers')->paginate(8);
+        $breweries = Brewery::has('beers', '>=', 0)->orderBy('id', 'desc')->withCount('beers')->paginate(8);
 
         return Inertia::render('Dashboard', ['breweries' => $breweries]);
     }
@@ -36,19 +36,16 @@ class BreweryController extends Controller
 //            'address' => 'required',
 //        ]);
 
-        $name = $this->request->get('name');
-        $address = $this->request->get('address');
+        /*$name = $this->request->get('name');
+        $address = $this->request->get('address');*/
 
         $brewery = new $this->brewery;
-        $brewery->name = $name;
-        $brewery->address = $address;
-//        $brewery->fill($this->request->all());
+       /* $brewery->name = $name;
+        $brewery->address = $address;*/
+        $brewery->fill($this->request->all());
         $brewery->save();
 
-        return response()->json([
-            'message' => 'Resource created',
-            'data' => $brewery
-        ], 201);
+        return redirect()->route('breweries.index');
     }
 
     public function show(Brewery $brewery)
@@ -90,8 +87,6 @@ class BreweryController extends Controller
 //        dd($this->request->get('_method'));
         $brewery = $this->brewery->findOrFail($id)->delete();
 
-        return $this->index();
-
-//        return response()->json([], 204);
+        return redirect()->route('breweries.index');
     }
 }
