@@ -56,14 +56,32 @@ class BreweryController extends Controller
         //
     }
 
-    public function edit(Brewery $brewery)
+    public function edit($id)
     {
-        //
+        $brewery = $this->brewery->findOrFail($id);
+        return Inertia::render('EditBrewery', ['brewery' => $brewery]);
     }
 
-    public function update(Request $request, Brewery $brewery)
+    public function update($id)
     {
-        //
+//        dd($this->request->all());
+//        User::create(
+//            Request::validate([
+//                'first_name' => ['required', 'max:50'],
+//                'last_name' => ['required', 'max:50'],
+//                'email' => ['required', 'max:50', 'email'],
+//            ])
+//        );
+        $data = $this->request->get('data');
+        $brewery = $this->brewery->findOrFail($id);
+//        $brewery->fill($this->request->all());
+        $brewery->name = $this->request->get('name');
+        $brewery->address = $this->request->get('address');
+        $brewery->phone = $this->request->get('phone');
+        $brewery->save();
+        return response()->json([
+            'message' => 'Resource updated'
+        ]);
     }
 
     public function destroy()

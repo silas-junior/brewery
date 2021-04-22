@@ -77,9 +77,10 @@
                                             </div>
                                         </div>
                                     </div>-->
-                                    <div v-show="dropdown === b.id" class="absolute right-0 mr-6 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                    <div v-show="drop === b.id" class="absolute right-0 mr-6 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                         <div class=" flex flex-col">
-                                            <a @click.prevent="debug(b.id)" class="text-gray-700 block px-4 py-2 text-sm flex justify-between hover:bg-gray-200">
+                                            <a class="w-full flex items-center justify-end p-2 text-sm space-x-2 dropdown-item hover:bg-gray-200"
+                                               @click.prevent="edit(b.id)">
                                                 <span class="font-semibold text-gray-700">Editar</span>
                                                 <i class="fas fa-pencil-alt text-gray-700"></i>
                                             </a>
@@ -142,7 +143,7 @@ export default {
     },
     data() {
         return {
-            dropdown: false,
+            drop: false
         };
     },
     computed: {
@@ -150,7 +151,8 @@ export default {
     },
     methods: {
         dropActive(payload) {
-            this.dropdown = this.dropdown === payload ? null : payload
+            // console.log(payload)
+            this.drop = this.drop === payload ? null : payload
             /*if(this.drop === payload) {
                 this.drop = null;
             } else {
@@ -160,20 +162,23 @@ export default {
         debug(payload) {
             console.log(payload)
         },
+        edit(payload) {
+            this.$inertia.get(`breweries/${payload}/edit`)
+        },
+
         /*Delete*/
         deleteBrewery(payload) {
-            /*Criando copia para poder mudar o props breweries*/
-            // const deleteItem = [...this.breweries.data[payload]]
-            // this.breweries = this.breweries.data.splice(payload, 1)
-            // deleteItem.splice(payload, 1)
-            // const list = this.breweries.data[payload];
-            // this.breweries.data.splice(payload)
+            // const removeItem = this.drop.splice(payload)
+            // console.log('item removido:', removeItem)
 
-            console.log('item a ser removido:', payload)
+            const cervejaria = this.breweries.data
+
+            if(this.breweries === payload) {
+                this.breweries.splice(payload, 1);
+            } else {
+                return 'item n existe'
+            }
         }
-    },
-    created() {
-        console.log(this.breweries.data)
     }
 };
 </script>

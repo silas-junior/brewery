@@ -9,8 +9,6 @@
             <input type="text" placeholder="Digite um Estado" v-model="form.address.state">
             <input type="text" placeholder="Digite uma Cidade" v-model="form.address.city">
         </div>
-        <div class="pt-10">
-        </div>
 
         <!--        <inertia-link ">-->
         <button type="submit" @click.prevent="id.delete('/breweries')">
