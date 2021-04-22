@@ -162,25 +162,43 @@
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Nome</div>
-                                    <input placeholder="Digite um Nome"  name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.name" placeholder="Digite um Nome" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">País</div>
-                                    <input placeholder="Digite um País" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.adress.country" placeholder="Digite um País" name="país" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Cidade</div>
-                                    <input placeholder="Digite uma Cidade" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.adress.city" placeholder="Digite uma Cidade" name="cidade" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Número</div>
-                                    <input placeholder="Digite um Número" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.adress.number" placeholder="Digite um Número" name="numero" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/2">
+                                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
+                                    <div class="mb-2">Telefone</div>
+                                    <input v-model="form.phone" placeholder="Digite um Telefone" name="telefone" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/2">
+                                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
+                                    <div class="mb-2">Web site</div>
+                                    <input v-model="form.website" placeholder="Digite um Telefone" name="telefone" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-2/2">
+                                <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
+                                    <div class="mb-2">Descrição</div>
+                                    <textarea v-model="form.description" placeholder="Descrição da Cervejaria" name="telefone" rows="5" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none"/>
                                 </div>
                             </div>
                         </div>
