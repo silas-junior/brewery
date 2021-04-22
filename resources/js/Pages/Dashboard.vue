@@ -268,10 +268,15 @@ export default {
 
         /*Delete*/
         deleteBrewery(payload) {
-            // const data =  this.data
             this.data._method = 'DELETE'
-            console.log(this.data)
-            this.$inertia.post(`/breweries/${payload}`, this.data)
+            this.$inertia.post(`/breweries/${payload}`, this.data, {
+                onSuccess: response => {
+                    console.log(response)
+                },
+                onError: error => {
+                    console.log(error)
+                }
+            })
         },
         modalActive() {
             this.modal = !this.modal
