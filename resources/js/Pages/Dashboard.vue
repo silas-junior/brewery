@@ -79,17 +79,14 @@
                                     </div>-->
                                     <div v-show="drop === b.id" class="absolute right-0 mr-6 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                         <div class=" flex flex-col">
-                                            <a class="w-full flex items-center justify-end p-2 text-sm space-x-2 dropdown-item hover:bg-gray-200"
-                                               @click.prevent="edit(b.id)">
+                                            <a @click.prevent="edit(b.id)" class="text-gray-700 block px-4 py-2 text-sm border-t border-gray-100 flex justify-between hover:bg-gray-200">
                                                 <span class="font-semibold text-gray-700">Editar</span>
                                                 <i class="fas fa-pencil-alt text-gray-700"></i>
                                             </a>
-                                            <button>
                                             <a @click.prevent="deleteBrewery(b.id)" class="text-gray-700 block px-4 py-2 text-sm border-t border-gray-100 flex justify-between hover:bg-gray-200">
                                                 <span class="font-semibold text-gray-700">Excluir</span>
                                                 <i class="fas fa-trash text-gray-700"></i>
                                             </a>
-                                            </button>
                                         </div>
                                     </div>
 
