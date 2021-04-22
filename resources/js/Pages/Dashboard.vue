@@ -33,11 +33,19 @@
         </div>-->
     </form>
 
+    <!--Button Create-->
+    <div class="">
+        <button class="flex justify-between items-center justify-center bg-indigo-500 hover:bg-indigo-600 mb-2 rounded-md block text-sm px-4 py-2 focus:outline-none">
+            <i class="fas fa-plus text-white mr-2"></i>
+            <span class="font-semibold text-white">Adicionar</span>
+        </button>
+    </div>
+
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul class="divide-y divide-gray-200">
             <li v-for="b in breweries.data" :key="b.id">
-                <inertia-link :href="route('beers.index', {id: b.id})" class="block hover:bg-gray-50">
-                    <div class="px-4 py-4 sm:px-6">
+                <inertia-link :href="route('beers.index', {id: b.id})" class="hover:bg-gray-50">
+                    <div class="px-4 py-5 sm:px-6">
 
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-indigo-600 truncate">{{ b.name }}</p>
@@ -55,7 +63,7 @@
                                     <button  @click.prevent="dropActive(b.id)" class="flex items-center justify-center focus:outline-none bg-gray-50 p-2 hover:bg-gray-200 h-6 w-6 rounded-full">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
-                                    <div v-show="drop === b.id" class="z-30 absolute bg-gray-100 border-2 rounded-sm border-gray-200 transition mt-6  shadow-2xl">
+                                    <!--                                    <div v-show="drop === b.id" class="z-30 absolute bg-gray-100 border-2 rounded-sm border-gray-200 transition mt-6  shadow-2xl">
                                         <div class="dropdown-content w-24">
                                             <div class="flex flex-wrap items-center justify-center">
                                                 <a class="w-full flex items-center justify-end p-2 text-sm space-x-2 dropdown-item hover:bg-gray-200" href="/">
@@ -68,7 +76,20 @@
                                                 </a>
                                             </div>
                                         </div>
+                                    </div>-->
+                                    <div v-show="drop === b.id" class="absolute right-0 mr-6 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                        <div class=" flex flex-col">
+                                            <a @click.prevent="debug(b.id)" class="text-gray-700 block px-4 py-2 text-sm flex justify-between hover:bg-gray-200">
+                                                <span class="font-semibold text-gray-700">Editar</span>
+                                                <i class="fas fa-pencil-alt text-gray-700"></i>
+                                            </a>
+                                            <a @click.prevent="deleteBrewery(b.id)" class="text-gray-700 block px-4 py-2 text-sm border-t border-gray-100 flex justify-between hover:bg-gray-200">
+                                                <span class="font-semibold text-gray-700">Excluir</span>
+                                                <i class="fas fa-trash text-gray-700"></i>
+                                            </a>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -94,7 +115,7 @@
                                 </p>
                             </div>
 
-<!--                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+                            <!--<div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
                                 <p>Qtd. de Cervejas: {{ b.beers_count }}</p>
                             </div>-->
                         </div>
@@ -136,6 +157,27 @@ export default {
             } else {
                 this.drop = payload;
             }*/
+        },
+        debug(payload) {
+            console.log(payload)
+        },
+        /*Edit*/
+        /*editBrewery() {
+
+        },*/
+
+        /*Delete*/
+        deleteBrewery(payload) {
+            // const removeItem = this.drop.splice(payload)
+            // console.log('item removido:', removeItem)
+
+            const cervejaria = this.breweries.data
+
+            if(this.breweries === payload) {
+                this.breweries.splice(payload, 1);
+            } else {
+                return 'item n existe'
+            }
         }
     }
 };

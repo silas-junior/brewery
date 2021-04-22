@@ -14,6 +14,7 @@
     </head>
 
     <body class="bg-gray-200 ">
-        <div class="container mx-auto mt-20">@inertia</div>
+{{--        <div class="px-10 mx-auto mt-20">@inertia</div>--}}
+        <div class="px-60 py-10">@inertia</div>
     </body>
 </html>

@@ -1,10 +1,14 @@
 <template>
-    <h1 class="text-2xl font-bold text-gray-700 mb-6">
-        {{ brewery.name }}
-        <inertia-link :href="route('breweries.index')" class="text-sm text-blue-600 hover:text-blue-400">
-            [back]
+
+    <div class="flex justify-between">
+        <h1 class="text-2xl font-bold text-gray-700 mb-6">{{ brewery.name }}</h1>
+
+        <inertia-link :href="route('breweries.index')" class="flex justify-center items-center justify-center bg-indigo-500 hover:bg-indigo-600 mb-4 rounded-md block text-sm px-4 focus:outline-none">
+            <i class='bx bxs-arrow-to-left text-white mr-1 text-2xl'></i>
+            <span class="font-semibold text-white">Voltar</span>
         </inertia-link>
-    </h1>
+    </div>
+
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
