@@ -84,12 +84,14 @@ class BreweryController extends Controller
         ]);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        $id = $this->request->get('id');
-//        dd($this->request->get('id'));
+//        $id = $this->request->get('id');
+//        dd($this->request->get('_method'));
         $brewery = $this->brewery->findOrFail($id)->delete();
 
-        return response()->json([], 204);
+        return $this->index();
+
+//        return response()->json([], 204);
     }
 }

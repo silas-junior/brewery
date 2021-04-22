@@ -171,21 +171,10 @@ export default {
 
         /*Delete*/
         deleteBrewery(payload) {
-            // const removeItem = this.drop.splice(payload)
-            // console.log('item removido:', removeItem)
             // const data =  this.data
             this.data._method = 'DELETE'
-            // console.log(data)
-            this.$inertia.post(`breweries/${payload}`, this.data)
-
-
-            // const cervejaria = this.breweries.data
-            //
-            // if(this.breweries === payload) {
-            //     this.breweries.splice(payload, 1);
-            // } else {
-            //     return 'item n existe'
-            // }
+            console.log(this.data)
+            this.$inertia.post(`/breweries/${payload}`, this.data)
         }
     }
 };
