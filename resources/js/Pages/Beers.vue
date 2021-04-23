@@ -47,6 +47,13 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <div v-show="beers.length === 0" class="flex items-center justify-center border-t border-gray-300 font-medium text-gray-600 text-lg p-4 bg-gray-200">
+                            Não há registros de cervejas
+                        </div>
+
+
+
     <!--                    <div class="px-6 pb-4 bg-white">
                             <pagination :data="beers" />
                         </div>-->
