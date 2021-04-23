@@ -13,6 +13,7 @@ createApp({
         h(App, {
             initialPage: JSON.parse(el.dataset.page),
             resolveComponent: (name) => require(`./Pages/${name}`).default,
+            resolveErrors: page => (page.props.errors || {}),
         }),
 })
     .use(plugin)

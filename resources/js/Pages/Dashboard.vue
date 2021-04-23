@@ -157,52 +157,61 @@
                     </div>
 
                     <!--BODY MODAL-->
+                    <form action="">
                     <div class="">
                         <div class="flex flex-col lg:flex-row lg:flex-wrap w-full mt-6 mb-4">
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Nome</div>
                                     <input v-model="form.name" placeholder="Digite um Nome" name="name" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <div v-if="errors.name" class="text-red-600">{{ errors.name.toString() }}</div>
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">País</div>
-                                    <input v-model="form.address.country" placeholder="Digite um País" name="país" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.address.country" placeholder="Digite um País" name="country" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <div v-if="form.errors['address.country']" class="text-red-600">{{ form.errors['address.country'].toString() }}</div>
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Cidade</div>
-                                    <input v-model="form.address.city" placeholder="Digite uma Cidade" name="cidade" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.address.city" placeholder="Digite uma Cidade" name="city" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+<!--                                    <div v-if="form.errors.address" class="text-red-600">{{ form.errors.address.toString() }}</div>-->
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Número</div>
-                                    <input v-model="form.address.number" placeholder="Digite um Número" name="numero" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.address.number" placeholder="Digite um Número" name="number" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+<!--                                    <div v-if="errors.address.number" class="text-red-600">{{ errors.address.number.toString() }}</div>-->
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Telefone</div>
-                                    <input v-model="form.phone" placeholder="Digite um Telefone" name="telefone" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.phone" placeholder="Digite um Telefone" name="phone" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <div v-if="form.errors.phone" class="text-red-600">{{ form.errors.phone.toString() }}</div>
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Web site</div>
-                                    <input v-model="form.website" placeholder="Digite um Telefone" name="telefone" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+                                    <input v-model="form.website" placeholder="Digite um Telefone" name="website" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
+<!--                                    <div v-if="errors.website">{{ errors.website }}</div>-->
                                 </div>
                             </div>
                             <div class="w-full lg:w-2/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Descrição</div>
-                                    <textarea v-model="form.descript" placeholder="Descrição da Cervejaria" name="telefone" rows="5" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none"/>
+                                    <textarea v-model="form.descript" placeholder="Descrição da Cervejaria" name="descript" rows="5" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none"/>
+<!--                                    <div v-if="errors.descript">{{ errors.descript }}</div>-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
                 <!--FOOTER MODAL-->
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -226,13 +235,25 @@ export default {
     components: {Pagination},
     props: {
         /*Props que vem do BeerController*/
-        breweries: Object
+        breweries: Object,
+        errors: Object,
     },
     data() {
         return {
             drop: false,
             data: {},
-            modal: false
+            modal: false,
+            // error: {
+            //     name: null,
+            //     address: {
+            //         country: null,
+            //         city: null,
+            //         number: null
+            //     },
+            //     phone: null,
+            //     website: null,
+            //     descript: null
+            // }
         };
     },
     setup() {
@@ -280,7 +301,7 @@ export default {
         },
         modalActive() {
             this.modal = !this.modal
-        }
+        },
     }
 };
 </script>

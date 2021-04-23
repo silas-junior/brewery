@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brewery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 
 class BreweryController extends Controller
@@ -20,8 +21,10 @@ class BreweryController extends Controller
     public function index()
     {
         $breweries = Brewery::has('beers', '>=', 0)->orderBy('id', 'desc')->withCount('beers')->paginate(8);
+        $token = csrf_token();
+//        dd($token);
 
-        return Inertia::render('Dashboard', ['breweries' => $breweries]);
+        return Inertia::render('Dashboard', ['breweries' => $breweries, '_token' => $token]);
     }
 
     public function create()
@@ -31,20 +34,38 @@ class BreweryController extends Controller
 
     public function store()
     {
-//        $this->request->validate([
-//            'name' => 'required',
-//            'address' => 'required',
-//        ]);
-
-        /*$name = $this->request->get('name');
-        $address = $this->request->get('address');*/
-
+//        dd($this->request->all());
+        $validate = Validator::make($this->request->all(), [
+            'name' => 'required|min:4',
+//            'address' => 'required|array',
+//            'custom' => [
+              'address.country' => 'required',
+//            ],
+//            'address.city' => 'required',
+//            'address.number' => 'required',
+            'phone' => 'required',
+            'website' => 'required',
+            'descript' => 'required',
+        ]);
+        if ($validate->fails()) {
+//            dd($validate->getMessageBag()->getMessages());
+            return redirect('/breweries')
+                ->withErrors($validate)
+                ->withInput();
+        }
         $brewery = new $this->brewery;
-       /* $brewery->name = $name;
-        $brewery->address = $address;*/
         $brewery->fill($this->request->all());
         $brewery->save();
 
+//        $brewery = Brewery::create(
+//            Request::validate([
+//                'first_name' => ['required', 'max:50'],
+//                'last_name' => ['required', 'max:50'],
+//                'email' => ['required', 'max:50', 'email'],
+//            ])
+//        );
+
+//        return response()->json($brewery, 201);
         return redirect()->route('breweries.index');
     }
 
