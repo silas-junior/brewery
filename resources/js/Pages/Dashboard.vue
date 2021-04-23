@@ -33,9 +33,12 @@
         </div>-->
     </form>
 
+    div>div
+
+
     <!--Button Create-->
     <div class="">
-        <button @click.prevent="modalActive" class="flex justify-between items-center justify-center bg-indigo-500 hover:bg-indigo-600 mb-2 rounded-md block text-sm px-4 py-2 focus:outline-none">
+        <button @click.prevent="modalCreateBreweries" class="flex justify-between items-center justify-center bg-indigo-500 hover:bg-indigo-600 mb-2 rounded-md block text-sm px-4 py-2 focus:outline-none">
             <i class="fas fa-plus text-white mr-2"></i>
             <span class="font-semibold text-white">Adicionar</span>
         </button>
@@ -130,7 +133,7 @@
     </div>
 
     <!--Modal Create Brewery-->
-    <div v-show="modal" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!--<div v-show="modal" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -140,7 +143,7 @@
             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
-                    <!--HEADER MODAL-->
+                    &lt;!&ndash;HEADER MODAL&ndash;&gt;
                     <div class="sm:flex sm:items-center justify-between">
                         <div class="flex items-center justify-center">
                             <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-indigo-500 sm:mx-0 sm:h-10 sm:w-10">
@@ -156,7 +159,7 @@
                         </div>
                     </div>
 
-                    <!--BODY MODAL-->
+                    &lt;!&ndash;BODY MODAL&ndash;&gt;
                     <form action="">
                     <div class="">
                         <div class="flex flex-col lg:flex-row lg:flex-wrap w-full mt-6 mb-4">
@@ -178,14 +181,14 @@
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Cidade</div>
                                     <input v-model="form.address.city" placeholder="Digite uma Cidade" name="city" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
-<!--                                    <div v-if="form.errors.address" class="text-red-600">{{ form.errors.address.toString() }}</div>-->
+&lt;!&ndash;                                    <div v-if="form.errors.address" class="text-red-600">{{ form.errors.address.toString() }}</div>&ndash;&gt;
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Número</div>
                                     <input v-model="form.address.number" placeholder="Digite um Número" name="number" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
-<!--                                    <div v-if="errors.address.number" class="text-red-600">{{ errors.address.number.toString() }}</div>-->
+&lt;!&ndash;                                    <div v-if="errors.address.number" class="text-red-600">{{ errors.address.number.toString() }}</div>&ndash;&gt;
                                 </div>
                             </div>
                             <div class="w-full lg:w-1/2">
@@ -199,21 +202,21 @@
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Web site</div>
                                     <input v-model="form.website" placeholder="Digite um Telefone" name="website" type="text" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none">
-<!--                                    <div v-if="errors.website">{{ errors.website }}</div>-->
+&lt;!&ndash;                                    <div v-if="errors.website">{{ errors.website }}</div>&ndash;&gt;
                                 </div>
                             </div>
                             <div class="w-full lg:w-2/2">
                                 <div class=" flex flex-col mb-4 text-gray-500 lg:mr-4 mt-0">
                                     <div class="mb-2">Descrição</div>
                                     <textarea v-model="form.descript" placeholder="Descrição da Cervejaria" name="descript" rows="5" class="block text-sm leading-none w-full appearance-none bg-white border px-2 py-3 rounded border-gray-500 focus:outline-none"/>
-<!--                                    <div v-if="errors.descript">{{ errors.descript }}</div>-->
+&lt;!&ndash;                                    <div v-if="errors.descript">{{ errors.descript }}</div>&ndash;&gt;
                                 </div>
                             </div>
                         </div>
                     </div>
                     </form>
                 </div>
-                <!--FOOTER MODAL-->
+                &lt;!&ndash;FOOTER MODAL&ndash;&gt;
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                     <button @click.prevent="form.post('/breweries')" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
                         Adicionar
@@ -224,15 +227,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+
+    <ModalCreateBreweries/>
 </template>
 
 <script>
 import Pagination from "../Shared/Pagination";
 import {useForm} from "@inertiajs/inertia-vue3";
+import ModalCreateBreweries from "../components/Modal/ModalCreateBreweries";
+import emitter from "../services/eventHub"
 export default {
     name: "Dashboard",
-    components: {Pagination},
+    components: {ModalCreateBreweries, Pagination},
     props: {
         /*Props que vem do BeerController*/
         breweries: Object,
@@ -241,22 +248,10 @@ export default {
     data() {
         return {
             drop: false,
-            data: {},
-            modal: false,
-            // error: {
-            //     name: null,
-            //     address: {
-            //         country: null,
-            //         city: null,
-            //         number: null
-            //     },
-            //     phone: null,
-            //     website: null,
-            //     descript: null
-            // }
+            data: {}
         };
     },
-    setup() {
+    /*setup() {
         const form = useForm({
             name: null,
             address: {
@@ -269,7 +264,7 @@ export default {
             descript: null
         })
         return {form}
-    },
+    },*/
     methods: {
         dropActive(payload) {
             // console.log(payload)
@@ -280,13 +275,9 @@ export default {
                 this.drop = payload;
             }*/
         },
-        debug(payload) {
-            console.log(payload)
-        },
         edit(payload) {
             this.$inertia.get(`breweries/${payload}/edit`)
         },
-
         /*Delete*/
         deleteBrewery(payload) {
             this.data._method = 'DELETE'
@@ -299,8 +290,12 @@ export default {
                 }
             })
         },
-        modalActive() {
+        /*modalActive() {
             this.modal = !this.modal
+        },*/
+        modalCreateBreweries() {
+            emitter.$emit('modalActive')
+            console.log('Emissão enviado!')
         },
     }
 };
