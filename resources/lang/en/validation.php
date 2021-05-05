@@ -1,18 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
-    |
-    */
-
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
@@ -122,20 +110,30 @@ return [
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
-    |
-    */
+
 
     'custom' => [
+        'name' => [
+            'required' => 'Campo nome é obrigatório',
+            'min' => 'Campo nome precisa ter no mínimo :min caractéres',
+        ],
         'address.country' => [
             'required' => 'Campo país é obrigatório',
+        ],
+        'address.city' => [
+            'required' => 'Campo cidade é obrigatório',
+        ],
+        'address.number' => [
+            'required' => 'Campo número é obrigatório',
+        ],
+        'phone' => [
+            'required' => 'Campo telefone é obrigatório',
+        ],
+        'website' => [
+            'required' => 'Campo website é obrigatório',
+        ],
+        'descript' => [
+            'required' => 'Campo descrição é obrigatório',
         ],
     ],
 

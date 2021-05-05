@@ -34,15 +34,11 @@ class BreweryController extends Controller
 
     public function store()
     {
-//        dd($this->request->all());
         $validate = Validator::make($this->request->all(), [
             'name' => 'required|min:4',
-//            'address' => 'required|array',
-//            'custom' => [
-              'address.country' => 'required',
-//            ],
-//            'address.city' => 'required',
-//            'address.number' => 'required',
+            'address.country' => 'required',
+            'address.city' => 'required',
+            'address.number' => 'required',
             'phone' => 'required',
             'website' => 'required',
             'descript' => 'required',
@@ -56,16 +52,6 @@ class BreweryController extends Controller
         $brewery = new $this->brewery;
         $brewery->fill($this->request->all());
         $brewery->save();
-
-//        $brewery = Brewery::create(
-//            Request::validate([
-//                'first_name' => ['required', 'max:50'],
-//                'last_name' => ['required', 'max:50'],
-//                'email' => ['required', 'max:50', 'email'],
-//            ])
-//        );
-
-//        return response()->json($brewery, 201);
         return redirect()->route('breweries.index');
     }
 
@@ -82,21 +68,14 @@ class BreweryController extends Controller
 
     public function update($id)
     {
-//        dd($this->request->all());
-//        User::create(
-//            Request::validate([
-//                'first_name' => ['required', 'max:50'],
-//                'last_name' => ['required', 'max:50'],
-//                'email' => ['required', 'max:50', 'email'],
-//            ])
-//        );
-        $data = $this->request->get('data');
+//        $data = $this->request->get('data');
         $brewery = $this->brewery->findOrFail($id);
 //        $brewery->fill($this->request->all());
         $brewery->name = $this->request->get('name');
         $brewery->address = $this->request->get('address');
         $brewery->phone = $this->request->get('phone');
         $brewery->save();
+
         return response()->json([
             'message' => 'Resource updated'
         ]);
