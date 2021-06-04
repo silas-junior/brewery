@@ -1,18 +1,13 @@
 <?php
 
+use App\Http\Controllers\BeerController;
+use App\Http\Controllers\BreweryController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BreweryController::class, 'index'])->name('breweries.index');
+Route::get('/brewery/{id}/beers', [BeerController::class, 'index'])->name('beers.index');
+//Route::post('/breweries', [BreweryController::class, 'store'])->name('breweries.store');
+//Route::get('/breweries', [BreweryController::class, 'index'])->name('breweries.index');
+//Route::delete('/breweries', [BreweryController::class, 'destroy'])->name('breweries.delete');
+//Route::get('/button', [BreweryController::class, 'create'])->name('button');
+Route::resource('/breweries', BreweryController::class);
